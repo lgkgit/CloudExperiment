@@ -1,0 +1,35 @@
+<view class="container">
+  <!-- 上半部分包含一个图标 -->
+  <view class="top-section">
+    <image src="/image/unknow_person.png" class="logo-image" />
+  </view>
+
+  <!-- 中间部分是登录表单 -->
+  <view class="middle-section">
+    <view class="login-form">
+      <!-- 账号 -->
+      <view class="search-bar">
+        <image class="search-icon" src="/image/person_active.png"/>
+        <image class="search-line" src="/image/Vertical_line.png"/>
+        <input type="text" value="{{AccountNumber}}" placeholder="请输入账号" class="search-input" bindinput="GetAccount"/>
+      </view>
+      <!-- 密码 -->
+      <view class="search-bar">
+        <image class="search-icon" src="/image/password.png"/>
+        <image class="search-line" src="/image/Vertical_line.png"/>
+        <input type="number" password placeholder="请输入密码" class="search-input" bindinput="GetPassword"/>
+      </view>
+      <button class="login-button" hover-class="login-button-hover" bind:tap="onClickJump">登录</button>
+      <view class="links">
+        <text class="link" bind:tap="onForgetPassword">忘记密码？</text>
+        <text class="link" bind:tap="onRegister">注册账号</text>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 下半部分是一个空白区域 -->
+  <view class="bottom-section">
+    <!-- 这里可以根据需要添加其他内容或保持为空 -->
+  </view>
+</view>

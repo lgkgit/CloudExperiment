@@ -1,0 +1,29 @@
+/* pages/demo/demo.wxss */
+
+.container_demo {
+  padding: 10px;
+}
+.list {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40rpx;
+  border-bottom: 4rpx solid #eee;
+}
+.doc-title {
+  font-size: 16px;
+  color: #333;
+}
+.view-icon {
+  width: 24px;
+  height: 24px;
+}
+.view-icon image {
+  width: 100%;
+  height: 100%;
+}

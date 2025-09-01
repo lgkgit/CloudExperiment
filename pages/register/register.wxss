@@ -1,0 +1,92 @@
+/* pages/register/register.wxss */
+/* 页面容器的整体样式 */
+.container {
+  display: flex; /* 使用flex布局 */
+  flex-direction: column; /* 子元素垂直排列 */
+  height: 100vh; /* 高度占满视口高度 */
+  justify-content: space-around; /* 子元素在主轴线上均匀分布 */
+  align-items: center; /* 子元素在交叉轴上居中对齐 */
+  background-color: #E9EAF2; /* 设置背景颜色 */
+}
+
+/* 顶部图标区域样式 */
+.container .top-section {
+  flex-grow: 1; /* 分配空间，与下半部分空间相同 */
+  display: flex; /* 使用flex布局 */
+  justify-content: center; /* 在主轴线上居中对齐 */
+  align-items: center; /* 在交叉轴上居中对齐 */
+}
+
+/* logo图标的样式 */
+.container .top-section .logo-image {
+  width: 120px; /* 设定图标宽度 */
+  height: 120px; /* 设定图标高度 */
+}
+
+/* 中间登录表单区域样式 */
+.middle-section {
+  width: 80%; /* 表单区域占屏幕宽度的80% */
+  max-width: 300px; /* 表单区域的最大宽度 */
+}
+
+.search-bar{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2rpx solid #ccc;
+  border-radius: 50rpx;
+  padding: 20rpx; 
+  margin-top: 30rpx; /* 上边距 */ 
+  background-color: #ffffff; /* 背景颜色 */
+}
+
+.search-bar .search-icon {
+  margin-left: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.search-bar .search-line {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.search-bar .search-input {
+  width: 200rpx; 
+  height: 60rpx; 
+  flex-grow: 1;
+  border: none;
+  outline: none;
+}
+
+.search-bar .search-button {
+  width: 200rpx; 
+  height: 60rpx; 
+  background-color: #519FE0;
+  padding: 1rpx;
+  border-radius: 50rpx; 
+  color: white; 
+  font-size: 28rpx; 
+  border: none;
+}
+
+/* 登录按钮的样式 */
+.login-button {
+  width: 100%; /* 按钮占满整个表单宽度 */
+  background-color: #519FE0; /* 按钮背景颜色 */
+  border: none; /* 无边框 */
+  border-radius: 25px; /* 边框圆角 */
+  padding: 10px; /* 内边距 */
+  color: white; /* 文字颜色 */
+  margin-top: 20px; /* 上边距 */
+}
+.login-button-hover {
+  background-color: #104E8B; /* 按下时的背景颜色 */
+}
+
+/* 底部空白区域的样式 */
+.bottom-section {
+  flex-grow: 1; /* 分配空间，与顶部空间相同 */
+}
+
+

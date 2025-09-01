@@ -1,0 +1,46 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+  <!-- 上半部分包含一个图标 -->
+  <view class="top-section">
+    <image src="/image/unknow_person.png" class="logo-image" />
+  </view>
+
+  <!-- 中间部分是登录表单 -->
+  <view class="middle-section">
+    <view class="login-form">
+      <!-- 手机号 -->
+      <view class="search-bar">
+        <image class="search-icon" src="/image/smartphone.png"/>
+        <image class="search-line" src="/image/Vertical_line.png"/>
+        <input type="number" placeholder="请输入手机号" class="search-input"/>
+      </view>
+      <!-- 账号 -->
+      <view class="search-bar">
+        <image class="search-icon" src="/image/person_active.png"/>
+        <image class="search-line" src="/image/Vertical_line.png"/>
+        <input type="text"  value="{{initialValue + inputValue}}" bindinput="inputChange" placeholder="请输入账号" class="search-input"/>
+      </view>
+      <!-- 密码 -->
+      <view class="search-bar">
+        <image class="search-icon" src="/image/password.png"/>
+        <image class="search-line" src="/image/Vertical_line.png"/>
+        <input type="number" password placeholder="请输入密码" class="search-input"/>
+      </view>
+      <!-- 验证码 -->
+      <view class="search-bar">
+        <image class="search-icon" src="/image/VerificationCode.png"/>
+        <image class="search-line" src="/image/Vertical_line.png"/>
+        <input type="number" placeholder="请输入验证码" class="search-input"/>
+        <button size="mini" class="search-button" bind:tap="onSendMessage">发送短信</button>
+      </view>
+      
+      <button class="login-button" hover-class="login-button-hover" bind:tap="onRegister">注册</button>
+    </view>
+  </view>
+
+
+  <!-- 下半部分是一个空白区域 -->
+  <view class="bottom-section">
+    <!-- 这里可以根据需要添加其他内容或保持为空 -->
+  </view>
+</view>

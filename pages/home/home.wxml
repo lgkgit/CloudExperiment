@@ -1,0 +1,106 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <!-- 内容区域，使用三个view分别代表三个标签页 -->
+  <view class="tab-content" hidden="{{currentTab != 0}}">
+    <!-- 历史优秀成绩板块 -->
+    <view class="section history-excellent-grades">
+      <view class="section-title">历史优秀范例</view>
+      <!--  轮播图区域-->
+      <!-- indicator-dots：显示面板指示点 -->
+      <swiper class="swiper-container" indicator-dots indicator-color="#eee" autoplay circular>
+        <block wx:for="{{HistoryImages}}" wx:key="*this">
+          <swiper-item>
+            <view class="item_s">
+              <image src="{{item}}" mode="widthFix" bind:tap="HisGrade"/>
+            </view>
+          </swiper-item>  
+        </block>
+      </swiper>
+    </view>
+    <!-- 个人成绩分析板块 -->
+    <view class="section personal-grade-analysis">
+      <view class="Horizob">
+        <view class="section-title">个人成绩分析</view>
+        <image class="ReButton" src="/image/Renovate.png" bind:tap="onGetGrade"/>
+      </view>
+      <view class="person_grade">
+        <view class="ecchart">
+          <ec-canvas class="line_grade" id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec_grade }}"></ec-canvas>
+        </view>
+      </view>
+      <view class="title">教师评语</view>
+      <scroll-view class="ContentInput" scroll-y>
+      <view class="purpose">{{TeacherComment}}</view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <view class="tab-content" hidden="{{currentTab != 1}}">
+    <scroll-view class="Experiment" scroll-y>
+      <block wx:for="{{Experiment}}" wx:key="unique">
+        <view class="Experiment-card"  bind:tap="naviExperiment" data-id="{{item.id}}">
+          <view class="Experiment-title">
+            <text style="margin-left: 2px;">{{item.title}}</text>
+            <image class="Experiment-title-image"src="/image/Details.png" ></image>
+          </view>
+          <text class="Experiment-date">{{item.date}}</text>
+          <view class="Experiment-data">
+            <view class="Experiment-data-item">
+              <text class="Experiment-data-item-name">成绩: </text>
+              <text class="Experiment-data-item-value">{{item.grade}} 分</text>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <!-- Experiment1 -->
+      <!-- <view class="Experiment-card" bind:tap="naviExperiment1">
+        <view class="Experiment-title">
+          <text style="margin-left: 2px;">热电偶实验</text>
+          <image class="Experiment-title-image"src="/image/Details.png"></image>
+        </view>
+        <text class="Experiment-date">完成期限: 2024-05-13</text>
+        <view class="Experiment-data">
+          <view class="Experiment-data-item">
+            <text class="Experiment-data-item-name">成绩: </text>
+            <text class="Experiment-data-item-value">90 分</text>
+          </view>
+        </view>
+      </view> -->
+
+    </scroll-view>
+  </view>
+
+  <view class="tab-content" hidden="{{currentTab != 2}}">
+    <view class="profile-info">
+      <view class="avatar-container">
+        <image src="/image/unknow_person.png" class="avatar" /> 
+      </view>
+      <view class="info-item">姓名：<text style="font-weight: 200;">{{StudentName}}</text></view>
+      <view class="info-item">学号：<text style="font-weight: 200;">{{AccountNumber}}</text></view>
+      <view class="info-item">学院：<text style="font-weight: 200;">{{StudentCollege}}</text></view>
+      <view class="info-item">电话：<text style="font-weight: 200;">{{StudentPhonenumber}}</text></view>
+      <button class="setting-button" bind:tap="onClickChange">修改资料</button>
+    </view>
+  </view>
+
+  <!-- 底部导航栏 -->
+  <view class="footer-tabbar">
+    <!-- 成绩分析 -->
+    <view class="tab-item" bindtap="switchTab" data-index="0">
+      <image src="{{currentTab == 0 ? '/image/grade_active.png' : '/image/grade.png'}}" class="icon"></image>
+      <text class="{{currentTab == 0 ? 'tab-text-active' : ''}}">成绩</text>
+    </view>
+    <!-- 实验选择 -->
+    <view class="tab-item" bindtap="switchTab" data-index="1">
+      <image src="{{currentTab == 1 ? '/image/Experiment_active.png' : '/image/Experiment.png'}}" class="icon"></image>
+      <text class="{{currentTab == 1 ? 'tab-text-active' : ''}}">实验</text>
+    </view>
+    <!-- 个人信息 -->
+    <view class="tab-item" bindtap="switchTab" data-index="2">
+      <image src="{{currentTab == 2 ? '/image/person_active.png' : '/image/person.png'}}" class="icon"></image>
+      <text class="{{currentTab == 2 ? 'tab-text-active' : ''}}">个人</text>
+    </view>
+  </view>
+
+</view>

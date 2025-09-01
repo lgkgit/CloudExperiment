@@ -1,0 +1,126 @@
+<!--pages/test/test.wxml-->
+<view class="container1">
+  <!-- 附件 -->
+  <view class="section">
+    <view class="attachment" bind:tap="OpenDocument">
+      <image style="width: 35rpx; height: 35rpx;" src="/image/download.png" mode="heightFix"/>
+      <text bindtouchstart="onTouchStart" bindtouchend="onTouchEnd" class="attachment {{isActive ? 'attachment-active' : ''}}">热电偶实验要求</text>
+    </view>
+  </view>
+  
+  <!-- 实验目的 -->
+  <view class="section">
+    <view class="title">
+      <text>实验目的与要求</text>
+    </view>
+    <scroll-view class="ContentInput" scroll-y>
+      <textarea bindinput="updatePurpose" placeholder="请输入实验目的" maxlength="-1"></textarea>
+    </scroll-view>
+  </view>
+  <!-- 实验数据 -->
+  <view class="section">
+    <view class="title">
+      <text>实验结果和数据处理</text>
+    </view>
+
+    <view class="ecchart">
+      <ec-canvas class="line_experiment" id="Experimentchart-dom-line" canvas-id="Experimentchart-line" ec="{{ ec_Experiment }}"></ec-canvas>
+    </view>
+
+    <view>
+      <view class="BleTitle"><text>蓝牙连接区</text></view>
+      <!-- 模拟蓝牙信号的选择 -->
+      <picker bindchange="onPickerChange" value="{{pickerIndex}}" range="{{pickerRange}}">
+        <view class="picker">
+          蓝牙信号：{{pickerRange[pickerIndex]}}
+          <image src="/image/dropdown.png" class="picker-icon"></image>
+        </view>
+      </picker>
+      
+      <button class="myButton" hover-class="myButton-hover" bind:tap="OnConnectDevise">连接设备</button>
+     <view class="BleConectRegion">
+      <view class="BleData">
+        <view class="BledataName">蓝牙数据</view>
+        <view class="BledataShow">{{deviceData}}</view>
+      </view>
+      <input class="Bleinput" type="text" placeholder="请输入对应值" bindinput="onValueInput"/>
+      <view class="BleButtun">
+        <button size="mini" class="myButton" hover-class="myButton-hover" bindtap="BleGetCTempratureExData">请求温度</button>
+        <button size="mini" class="myButton" hover-class="myButton-hover" bindtap="changeData">修改数据</button>
+      </view>
+     </view>
+    </view>
+
+    <button class="myButton" hover-class="myButton-hover" bind:tap="ModeSelect">切换上传模式</button>
+
+    <view class="TakePhotoMode" hidden="{{PatternIndex == 0}}">
+      <scroll-view class="images-container" scroll-y>
+        <block wx:for="{{images}}" wx:key="*this">
+          <image src="{{item}}" class="photo" mode="widthFix"></image>
+        </block>
+      </scroll-view>
+      <button class="myButton" hover-class="myButton-hover" bindtap="takePhoto">拍照</button>
+    </view>
+    
+    <view class="TableMode" hidden="{{PatternIndex == 1}}">
+
+      <!-- 选择温度范围 -->
+      <picker bindchange="onTemperatureChange" value="{{tempIndex}}" range="{{temperatureRange}}">
+        <view class="picker">
+          当前温度：{{temperatureRange[tempIndex]}}
+          <image src="/image/dropdown.png" class="picker-icon"></image>
+        </view>
+      </picker>
+
+      <button class="myButton" hover-class="myButton-hover" bindtap="saveData">保存数据</button>
+      <view style="height: 20rpx;"></view>
+      <!-- 标题栏 -->
+      <view class="tr">
+        <view class="td">{{temperatureRange[tempIndex]}}</view>
+        <view class="td">值</view>
+      </view>
+      <scroll-view class="table" scroll-y>
+        <!-- 内容栏 -->
+        <block wx:for="{{experimentData}}" wx:key="index">
+          <view class="tr">
+            <view class="td">{{item.measurement}}</view>
+            <view class="td">
+              <input class="input" value="{{item.value}}" type="number" placeholder="" bindinput="onTableValue" data-id="{{index}}"/>
+              <!-- {{item.value}} -->
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+
+  </view>
+  
+  <!-- 实验结论 -->
+  <view class="section">
+    <view class="title">
+      <text>结论</text>
+    </view>
+    <scroll-view class="ContentInput" scroll-y>
+      <textarea bindinput="updateConclusion" placeholder="请输入实验结论" maxlength="-1"></textarea>
+    </scroll-view>  
+  </view>
+
+  <!-- 思考题 -->
+  <view class="section">
+    <view class="title">
+      <text>思考题</text>
+    </view>
+    <view class="question">
+      <block wx:for="{{ThinkingQuestions}}" wx:key="index">
+        <text>{{index + 1}}. {{item}}</text>
+        <scroll-view class="ContentInput" scroll-y>
+          <textarea type="text" data-questionid="{{index}}" bindinput="updateAnswer" placeholder="请输入答案" maxlength="-1"></textarea>
+        </scroll-view>
+      </block>
+    </view>
+  </view>
+  <!-- 上传数据 -->
+  <button class="myButton" hover-class="myButton-hover" bindtap="submitExperiment">提交</button>
+</view>
+
+

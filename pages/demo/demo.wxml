@@ -1,0 +1,19 @@
+<!--pages/demo/demo.wxml-->
+<!-- <view style="height: 200px;"></view>
+<button bind:tap="onLook">打开文档</button> -->
+
+<view class="container_demo">
+  <scroll-view class="list" scroll-y>
+    <block wx:for="{{documents}}" wx:key="unique">
+      <view class="item">
+        <text class="doc-title">{{item.title}}</text>
+        <view class="view-icon" bindtap="onLook" data-id="{{item.id}}">
+          <image src="/image/look.png" />
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!-- <iframe src="https://docs.google.com/gview?url=https://mp-bbd82d5f-9010-41a8-8269-14681d3d37c3.cdn.bspapp.com/2023版《电气测试技术》实验指导书.docx&embedded=true" style="width:100%; height:100px;" frameborder="0"></iframe> -->
+<!-- <web-view src="https://docs.google.com/gview?url=https://mp-bbd82d5f-9010-41a8-8269-14681d3d37c3.cdn.bspapp.com/2023版《电气测试技术》实验指导书.docx&embedded=true" style="width:100%; height:100px;"></web-view> -->

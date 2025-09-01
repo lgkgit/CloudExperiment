@@ -1,0 +1,222 @@
+/* pages/test/test.wxss */
+
+/* 容器 */
+.container1 {
+  padding: 20px;
+  background: #E9EAF2;
+}
+
+/* 板块 */
+.section {
+  background: white;
+  margin-bottom: 20px;
+  padding: 20rpx;
+  border-radius: 50rpx;
+}
+
+/* 标题 */
+.section .title {
+  font-size: 50rpx;
+  font-weight: bolder;
+  position: relative;
+  padding: 20rpx;
+  right: -12px; /* 调整圆的位置 */
+}
+
+.section .title::before {
+  content: '';
+  display: inline-block;
+  width: 24rpx; /* 圆的直径 */
+  height: 24rpx; /* 圆的直径 */
+  border-radius: 50%; /* 使其成为圆形 */
+  background-color: #519FE0; /* 圆的颜色 */
+  position: absolute;
+  left: -12px; /* 调整圆的位置 */
+  top: 50%; /* 将圆垂直居中 */
+  transform: translateY(-50%); /* 将圆垂直居中 */
+}
+
+
+/* 输入框 */
+.section .ContentInput {
+  width: 90%;
+  height: 200rpx;
+  font-size: 35rpx;
+  border-radius: 50rpx;
+  border: 4rpx solid #eee;
+  padding: 20rpx;
+}
+
+/* 附件样式 */
+.attachment {
+  font-size: 35rpx;
+  font-style: italic;
+  color: #519FE0;
+  text-decoration: underline;
+}
+.attachment-active {
+  font-size: 35rpx;
+  font-style: italic;
+  color: #104E8B;
+  text-decoration: underline;
+}
+
+.ecchart {
+  /* 使用弹性布局来排列容器内的元素 */
+  display: flex;
+  /* 在容器内垂直排列元素 */
+  flex-direction: column;
+  /* 在容器内垂直居中对齐元素 */
+  align-items: center;
+  /* 在主轴上均匀分布元素，创建元素之间的间隔 */
+  justify-content: space-between;
+  /* 设置盒子模型，包括边框和内边距在元素的尺寸内，而不会增加总宽度和高度 */
+  box-sizing: border-box;
+}
+
+.ecchart .line_experiment {
+width: 100%;
+height: 500rpx;
+}
+
+/* 思考题 */
+.question {
+  margin-top: 10px;
+  font-size: 35rpx;
+}
+
+/* 拍照功能 */
+.images-container {
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 25rpx;
+  height: 800rpx;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border: 5rpx solid #808080; /* 单元格边框 */
+}
+
+.photo {
+  width: 100%; /* 图片占满容器宽度 */
+  height: 400rpx; /* 固定图片高度 */
+  object-fit: cover; /* 调整图片的填充方式为覆盖，保持图片的宽高比 */
+  margin-bottom: 10px; /* 添加底部外边距 */
+  border: 5rpx solid #eee; /* 单元格边框 */
+}
+
+/* 表格样式 */
+.table {
+  height: 500rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 表格行样式 */
+.tr {
+  display: flex;
+  flex-direction: row;
+}
+
+/* 表格内容样式 */
+.td {
+  flex: 1; /* 使每个单元格平均分配空间 */
+  border: 1px solid black; /* 单元格边框 */
+  text-align: center; /* 文字居中 */
+  padding: 10px; /* 单元格内边距 */
+}
+
+.BleTitle{
+  width: 50%;
+  height: 60rpx;
+  padding: 20rpx;
+  font-size: 35rpx;
+  font-weight: bolder;
+  background: linear-gradient(to right, #EAEDEF, #ffffff);
+}
+
+.BleConectRegion{
+  height: 300rpx;
+  margin: 20rpx;
+  padding: 20rpx;
+  border-radius: 50rpx;
+  background: #EAEDEF;
+}
+
+.BleData{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20rpx;
+  padding: 20rpx;
+}
+
+.BleData .BledataName{
+  font-size: 40rpx;
+  font-weight: bolder;
+  margin-right: 20rpx;
+}
+
+.BleData .BledataShow{
+  width: 300rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  background-color: white;
+}
+
+.Bleinput{
+  text-align: center;
+  height: 70rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+  border-radius: 50rpx;
+  background: white;
+}
+
+.BleButtun{
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中，如果需要的话 */
+}
+
+/* 选择框样式 */
+/* Picker 触发器样式 */
+.picker {
+  width: 90%;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  padding: 20rpx;
+  background-color: #FFFFFF;
+  border: 1px solid #CCC;
+  border-radius: 50rpx;
+  color: #333;
+  font-size: 16px;
+}
+
+.picker-icon {
+  width: 20px; /* 根据图标实际大小调整 */
+  height: 20px;
+}
+
+
+
+/* 按钮样式及其按下样式 */
+.myButton {
+  background-color: #519FE0; /* 背景颜色 */
+  color: white; /* 字体颜色 */
+  border: none; /* 无边框 */
+  border-radius: 50rpx; /* 边角圆滑 */
+  padding: 10px; /* 内边距 */
+  font-size: 16px; /* 字体大小 */
+}
+.myButton-hover {
+  background-color: #104E8B; /* 按下时的背景颜色 */
+}
+

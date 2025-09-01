@@ -1,0 +1,68 @@
+    // // 首先，将数据写入到一个本地文件
+    // wx.chooseMessageFile({
+    //   count: 1,
+    //   type: 'all',
+    //   success (res) {
+    //     // tempFilePath可以作为img标签的src属性显示图片
+    //     const tempFilePaths = res.tempFiles
+    //     console.log(tempFilePaths);
+    //     // // 文件写入成功后，开始上传到服务器
+    //     wx.uploadFile({
+    //       url: 'https://file-unikgczypu-mp-bbd82d5f-9010-41a8-8269-14681d3d37c3.oss-cn-zhangjiakou.aliyuncs.com', // 云服务器接收文件的API地址
+    //       filePath: tempFilePaths[0].path,
+    //       name: 'file', // 必须与服务器端的字段对应
+    //       formData: {
+    //         'key': 'data.png', // 添加这一行
+    //         'cloudPath': 'data.png' ,
+    //         'ClientSecret':'qXZkgZfBTMF/k3JhuFgc4w==',
+    //         'filename':tempFilePaths[0].name,
+    //       },
+    //       success: (uploadRes) => {
+    //         console.log('文件上传成功', uploadRes.data);
+    //       },
+    //       fail: (uploadErr) => {
+    //         console.log('文件上传失败', uploadErr);
+    //       }
+    //     });     
+    //   }
+    // })
+    // 假设data是你要保存的数据
+    // const data = "abcd";
+    // wx.getFileSystemManager().writeFile({
+    //   filePath: `${wx.env.USER_DATA_PATH}/temp.txt`,
+    //   data: data,
+    //   encoding: 'utf8',
+    //   success: (res) => {
+    //     console.log('文件写入成功',`${wx.env.USER_DATA_PATH}/temp.txt`);
+    //     // 文件写入成功后，开始上传到服务器
+    //     wx.uploadFile({
+    //       url: 'https://file-unikgczypu-mp-bbd82d5f-9010-41a8-8269-14681d3d37c3.oss-cn-zhangjiakou.aliyuncs.com', // 云服务器接收文件的API地址
+    //       filePath:`${wx.env.USER_DATA_PATH}/temp.txt`,
+    //       name: 'file', // 必须与服务器端的字段对应
+    //       header: {
+    //         "token": wx.getStorageSync('token'),
+    //         "tenant-id": wx.getStorageSync('tenant-id')
+    //       },
+    //       formData: {
+    //         'user': 'test',
+    //         'provider': 'aliyun',
+    //         'SpaceId':'mp-bbd82d5f-9010-41a8-8269-14681d3d37c3',
+    //         'ClientSecret':'qXZkgZfBTMF/k3JhuFgc4w==',
+    //         'cloudPath':'data.txt',
+    //         'cloudPathAsRealPath':true,
+    //         'key': 'data.txt', // 添加这一行
+    //         'allowUpdate':true,
+    //         'fileContent':'123'
+    //       },
+    //       success: (uploadRes) => {
+    //         console.log('文件上传成功', uploadRes.data);
+    //       },
+    //       fail: (uploadErr) => {
+    //         console.log('文件上传失败', uploadErr);
+    //       }
+    //     });
+    //   },
+    //   fail: (err) => {
+    //     console.log('文件写入失败', err);
+    //   }
+    // });
